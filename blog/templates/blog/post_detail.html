@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div class="container">
+    <div class="row mt-3">
+    <h2>{{object.title}}</h2>
+    <p>投稿日時：{{ object.published_at |date }}</p>
+    <hr>
+    </div>
+    <div class="row">
+        <p>{{object.content}}</p>
+    </div>
+</div>
+{% endblock %}
+    
