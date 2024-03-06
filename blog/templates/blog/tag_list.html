@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% for tag in object_list %}
+<li>{{tag.name}}({{ tag.num_posts }})</li>
+{% empty %}
+<li>カテゴリはありません。</li>
+{% endfor %}
+
+{% endblock %}
