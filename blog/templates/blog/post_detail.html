@@ -7,6 +7,11 @@
     <div class="row mt-3">
     <h2>{{object.title}}</h2>
     <p>投稿日時：{{ object.published_at |date }}</p>
+    <p>更新日時：{{object.updated_at |date}}</p>
+    <p>カテゴリー：<a href="{% url 'blog:category_post' object.category.slug %}">{{object.category.name}}</a></p>
+    <p>タグ：{% for tag in object.tags.all %}
+    <a href="{% url 'blog:tag_post' tag.slug %}">{{ tag.name }}</a>
+    {% endfor %}</p>
     <hr>
     </div>
     <div class="row">

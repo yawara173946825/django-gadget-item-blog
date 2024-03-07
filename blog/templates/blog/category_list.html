@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% for category in object_list %}
+<li>{{category.name}}<a href="{% url 'blog:category_post' category.slug %}">({{category.num_posts}})</a></li>
+{% empty %}
+<li>カテゴリはありません。</li>
+{% endfor %}
+
+{% endblock %}

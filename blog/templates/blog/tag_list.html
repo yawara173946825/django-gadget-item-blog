@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% for tag in object_list %}
+<li>{{tag.name}} <a href="{% url 'blog:tag_post' tag.slug %}">({{ tag.num_posts }})</a> </li>
+{% empty %}
+<li>カテゴリはありません。</li>
+{% endfor %}
+
+{% endblock %}
