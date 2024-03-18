@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from markdownx.models import MarkdownxField
 
 # Create your models here.
 
@@ -25,7 +26,7 @@ class Post(models.Model):
     category = models.ForeignKey(Category, on_delete=models.PROTECT)
     tags = models.ManyToManyField(Tag, blank=True)
     title = models.CharField(max_length=255)
-    content = models.TextField()
+    content = MarkdownxField('本文', help_text='Markdown形式で書いてください')
     description = models.TextField(blank=True)
     image = models.ImageField(upload_to='post_images/', null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
